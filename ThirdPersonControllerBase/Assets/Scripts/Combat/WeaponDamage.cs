@@ -21,10 +21,15 @@ public class WeaponDamage : MonoBehaviour
         if(alreadyCollidedWith.Contains(other)){return;}
 
         alreadyCollidedWith.Add(other);
-
-        if(other.TryGetComponent<Health>(out Health health))
+//Player
+        if(other.TryGetComponent<PlayerHealth>(out PlayerHealth health))
         {
             health.DealDamage(damage);
+        }
+//Enemy
+        if(other.TryGetComponent<EnemyHealth>(out EnemyHealth enemyhealth))
+        {
+            enemyhealth.DealDamage(damage);
         }
 
         if(other.TryGetComponent<ForceReciever>(out ForceReciever forceReciever))

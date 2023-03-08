@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 70
+  controlID: 83
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 71
+  controlID: 89
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -250,7 +250,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 72
+  controlID: 90
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -534,21 +534,21 @@ MonoBehaviour:
     m_SkipHidden: 1
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/StateMachines/Player
+    - Assets
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 55
   m_LastFolders:
-  - Assets/Scripts/StateMachines/Player
+  - Assets
   m_LastFoldersGridSize: 55
-  m_LastProjectPath: C:\Users\nwag7\Desktop\Unity Games\Unity Games\GameDevBasics\ProjectSlime\ProjectSlime
+  m_LastProjectPath: X:\Unity\Github\ThirdPersonControllerBase\ThirdPersonControllerBase
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 310}
-    m_SelectedIDs: 505f0000
-    m_LastClickedID: 24400
+    scrollPos: {x: 0, y: 31}
+    m_SelectedIDs: 785d0000
+    m_LastClickedID: 23928
     m_ExpandedIDs: 00000000565d0000585d00005a5d00005c5d00005e5d0000605d0000625d0000645d0000665d0000685d00006a5d00006c5d00006e5d0000705d0000725d0000745d0000765d0000785d00007a5d00007c5d00007e5d0000805d0000825d0000845d0000865d0000885d00008a5d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -604,7 +604,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c62300008e250100ec25010076250100d6250100ca250100c4250100265c0000dc920000e2920000ba7d0000fc0e0100720f01002c1a0100e01401000c1301004e15010078100100741101007a130100aa170100101301005e0f01000a1601007c17010052130100d2790400da7704007a780400847804005c7904001c7904002c790400727a0400f48600003e650000165d0000225d0000285d00005062000020620000d0610000c8610000c0610000b8610000b0610000a8610000a061000084640000c2730000087000009a5d00003ab000000ab10000dab100006aaf0000f0b20000deb20000e4b20000eab2000072c500005c7b0100
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -707,8 +707,8 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 6a570000
-      m_LastClickedID: 22378
+      m_SelectedIDs: 
+      m_LastClickedID: 0
       m_ExpandedIDs: 16fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0

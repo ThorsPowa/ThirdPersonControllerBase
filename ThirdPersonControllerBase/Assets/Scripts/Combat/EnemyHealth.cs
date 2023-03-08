@@ -3,12 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] private int maxHealth = 100;
 
     private int health;
     private bool isInvulnerable;
+
+    //HealthBat Script start
+    public EnemyHealthBar healthBar;
+    //HealthBat Script end
+
 
     public event Action OnTakeDamage;
     public event Action OnDeath;
@@ -18,6 +23,9 @@ public class Health : MonoBehaviour
     void Start()
     {
         health =  maxHealth;
+        //HealthBat Script start
+        healthBar.SetMaxHealth(maxHealth);
+        //HealthBat Script end
     }
 
     public void SetInvulnerable(bool isInvulnerable)
@@ -33,11 +41,16 @@ public class Health : MonoBehaviour
 
         health = Mathf.Max(health - damage, 0);
 
+        //HealthBat Script start
+        healthBar.SetHealth(health);
+        //HealthBat Script end
+
         OnTakeDamage?.Invoke();
 
         if(health == 0)
         {
             OnDeath?.Invoke();
+            
         }
         
         Debug.Log(health);

@@ -11,7 +11,7 @@ public class EnemyStateMachine : StateMachine
     [field: SerializeField] public NavMeshAgent Agent {get;private set;}
     [field: SerializeField] public WeaponDamage WeaponRight {get;private set;}
     [field: SerializeField] public WeaponDamage WeaponLeft {get;private set;}
-    [field: SerializeField] public Health Health {get;private set;}
+    [field: SerializeField] public EnemyHealth Health {get;private set;}
     [field: SerializeField] public Target Target {get;private set;}
     [field: SerializeField] public Ragdoll Ragdoll {get;private set;}
 
@@ -21,11 +21,11 @@ public class EnemyStateMachine : StateMachine
     [field: SerializeField] public float PlayerAttackRange {get;private set;}
     [field: SerializeField] public int AttackDamage {get;private set;}
     [field: SerializeField] public int AttackKnockback {get;private set;}
-    public Health PlayerHealth {get; private set;}
+    public PlayerHealth PlayerHealth {get; private set;}
 
     private void Start()
     {   
-        PlayerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
+        PlayerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
         
         Agent.updatePosition = false;
         Agent.updateRotation = false;
