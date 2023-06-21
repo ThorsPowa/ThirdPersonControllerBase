@@ -750,7 +750,7 @@ MonoBehaviour:
   m_XAxis:
     Value: 0
     m_SpeedMode: 0
-    m_MaxSpeed: 300
+    m_MaxSpeed: 100
     m_AccelTime: 0.1
     m_DecelTime: 0.1
     m_InputAxisName: 
@@ -1184,6 +1184,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 2420742291500375480}
     m_Modifications:
     - target: {fileID: 1193642162244115265, guid: 99022c3c8eb8ab64e8ce91ea5d7d3a08,
@@ -1332,6 +1333,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 99022c3c8eb8ab64e8ce91ea5d7d3a08, type: 3}
 --- !u!114 &162222250222711089 stripped
 MonoBehaviour:

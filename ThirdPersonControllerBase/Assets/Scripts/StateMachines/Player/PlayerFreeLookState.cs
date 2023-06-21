@@ -5,10 +5,14 @@ using UnityEngine;
 public class PlayerFreeLookState : PlayerBaseState
 {
     private bool shouldFade;
+
     private readonly int FreeLookBlendTreeHash = Animator.StringToHash("FreeLookBlendTree");
     private readonly int FreeLookSpeedHash = Animator.StringToHash("FreeLookSpeed");
+
     private const float AnimatorDampTime = 0.1f;
-    private const float CrossFadeInDuration = 0.1f;
+
+    private const float CrossFadeDuration = 0.1f;
+
     public PlayerFreeLookState(PlayerStateMachine stateMachine, bool shouldFade = true) : base(stateMachine)
     {
         this.shouldFade = shouldFade;
@@ -21,26 +25,24 @@ public class PlayerFreeLookState : PlayerBaseState
 
         stateMachine.Animator.SetFloat(FreeLookSpeedHash, 0f);
 
-        if(shouldFade)
+        if (shouldFade)
         {
-            stateMachine.Animator.CrossFadeInFixedTime(FreeLookBlendTreeHash, CrossFadeInDuration);
+            stateMachine.Animator.CrossFadeInFixedTime(FreeLookBlendTreeHash, CrossFadeDuration);
         }
         else
         {
             stateMachine.Animator.Play(FreeLookBlendTreeHash);
         }
-    }   
+    }
 
-     public override void Tick(float deltaTime)
+    public override void Tick(float deltaTime)
     {
-        //Allow us to attack in freeLookState
-        if(stateMachine.InputReader.IsAttacking)
+        if (stateMachine.InputReader.IsAttacking)
         {
             stateMachine.SwitchState(new PlayerAttackingState(stateMachine, 0));
             return;
         }
 
-        //Movement
         Vector3 movement = CalculateMovement();
 
         Move(movement * stateMachine.FreeLookMovementSpeed, deltaTime);
@@ -52,22 +54,22 @@ public class PlayerFreeLookState : PlayerBaseState
         }
 
         stateMachine.Animator.SetFloat(FreeLookSpeedHash, 1, AnimatorDampTime, deltaTime);
-        
-        FaceMovementDirection(movement,deltaTime);
+
+        FaceMovementDirection(movement, deltaTime);
     }
 
     public override void Exit()
     {
         stateMachine.InputReader.TargetEvent -= OnTarget;
         stateMachine.InputReader.JumpEvent -= OnJump;
-    }  
+    }
 
     private void OnTarget()
-        {
-            if(!stateMachine.Targeter.SelectTarget()) {return;}
+    {
+        if (!stateMachine.Targeter.SelectTarget()) { return; }
 
-            stateMachine.SwitchState(new PlayerTargetingState(stateMachine));
-        }
+        stateMachine.SwitchState(new PlayerTargetingState(stateMachine));
+    }
 
     private void OnJump()
     {
@@ -79,20 +81,20 @@ public class PlayerFreeLookState : PlayerBaseState
         Vector3 forward = stateMachine.MainCameraTransform.forward;
         Vector3 right = stateMachine.MainCameraTransform.right;
 
-        forward.y = 0;
-        right.y = 0;
+        forward.y = 0f;
+        right.y = 0f;
 
         forward.Normalize();
         right.Normalize();
 
-        return forward * stateMachine.InputReader.MovementValue.y + 
+        return forward * stateMachine.InputReader.MovementValue.y +
             right * stateMachine.InputReader.MovementValue.x;
     }
 
-      private void FaceMovementDirection (Vector3 movement, float deltaTime)
+    private void FaceMovementDirection(Vector3 movement, float deltaTime)
     {
         stateMachine.transform.rotation = Quaternion.Lerp(
-            stateMachine.transform.rotation,  
+            stateMachine.transform.rotation,
             Quaternion.LookRotation(movement),
             deltaTime * stateMachine.RotationDamping);
     }

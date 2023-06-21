@@ -26,15 +26,17 @@ public class PlayerFallingState : PlayerBaseState
     {
         Move(momentum, deltaTime);
 
-        if(stateMachine.Controller.isGrounded)
         if (stateMachine.Controller.isGrounded)
         {
             ReturnToLocomotion();
         }
-    }    
+
+        FaceTarget();
+    }
+
     public override void Exit()
     {
-        stateMachine.LedgeDetector.OnLedgeDetect += HandleLedgeDetect;
+        stateMachine.LedgeDetector.OnLedgeDetect -= HandleLedgeDetect;
     }
 
     private void HandleLedgeDetect(Vector3 ledgeForward, Vector3 closestPoint)
@@ -42,4 +44,3 @@ public class PlayerFallingState : PlayerBaseState
         stateMachine.SwitchState(new PlayerHangingState(stateMachine, ledgeForward, closestPoint));
     }
 }
-
